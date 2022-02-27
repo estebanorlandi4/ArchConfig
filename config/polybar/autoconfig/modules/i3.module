@@ -1,0 +1,35 @@
+[module/i3]
+type = internal/i3
+enable-click = true
+enable-scroll = true
+pin-workspaces = false
+
+index-sort = true
+;strip-wsnumbers = yes
+
+ws-icon-0 = "1: terms;"
+ws-icon-1 = "2: browser;"
+ws-icon-2 = "3: spotify;"
+ws-icon-3 = "4: games;"
+ws-icon-4 = "5: servers;"
+
+ws-icon-default = 
+
+format = <label-state>
+
+label-focused = %icon% %index%
+label-focused-padding = 1
+label-focused-foreground = ${colors.cyan}
+label-focused-underline = ${colors.cyan}
+
+label-unfocused = %icon% %index%
+label-unfocused-padding = 1
+
+label-visible = %icon% %index%
+label-visible-padding = 1
+label-visible-foreground = ${colors.light-red}
+label-visible-underline = ${colors.light-red}
+
+
+label-urgent = %icon% %index%
+label-urgent-padding = 1

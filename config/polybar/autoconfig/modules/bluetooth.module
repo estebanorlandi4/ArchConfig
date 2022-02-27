@@ -1,0 +1,8 @@
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh
+click-left = ~/.config/polybar/scripts/toggle_bluetooth.sh
+
+interval = 3
+format-padding = 1
+format-foreground = ${colors.gutter-grey}

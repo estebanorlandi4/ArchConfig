@@ -1,0 +1,26 @@
+[bar/myBar]
+monitor = ${env:MONITOR:}
+
+width = 100%
+height = 30
+fixed-center = true
+
+background = ${colors.black}
+foreground = ${colors.white}
+
+line-size = 2
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+separator = %{F#5c6370}|%{F-}
+
+font-0 = FiraCode Nerd Font:size=8;0
+
+modules-left = arch i3
+modules-center = song date 
+modules-right = bluetooth wlan backlightctl pulseaudio battery
+
+cursor-click = pointer

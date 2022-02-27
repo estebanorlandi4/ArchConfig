@@ -1,0 +1,5 @@
+[module/backlightctl]
+type = custom/script
+exec = ~/.config/polybar/scripts/backlight.sh
+interval = 0.25
+

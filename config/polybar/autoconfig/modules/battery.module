@@ -1,0 +1,31 @@
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 100
+
+format-charging =  <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>  
+format-full =  <label-full> 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
+ramp-capacity-0-foreground = ${colors.dark-red}
+ramp-capacity-1-foreground = ${colors.dark-red}
+ramp-capacity-2-foreground = ${colors.light-red}
+ramp-capacity-3-foreground = ${colors.light-red}
+ramp-capacity-4-foreground = ${colors.dark-yellow}
+ramp-capacity-5-foreground = ${colors.dark-yellow}
+ramp-capacity-6-foreground = ${colors.light-yellow}
+ramp-capacity-7-foreground = ${colors.light-yellow}
+ramp-capacity-8-foreground = ${colors.green}
+ramp-capacity-9-foreground = ${colors.green}

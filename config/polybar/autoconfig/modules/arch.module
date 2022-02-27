@@ -1,0 +1,6 @@
+[module/arch]
+type = custom/text
+content = ""
+
+
+content-foreground = ${colors.white}

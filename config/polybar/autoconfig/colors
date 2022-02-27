@@ -1,0 +1,13 @@
+[colors]
+  black = #282c34
+  white = #fbf2ff
+  light-red = #e06c75
+  dark-red = #be5046
+  green = #98c379
+  light-yellow = #e5c07b
+  dark-yellow = #d19a66
+  blue = #61afef
+  cyan = #56b6c2
+  magenta = #c678dd
+  gutter-grey = #4b5263
+  comment-grey = #5c6370

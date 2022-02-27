@@ -1,0 +1,6 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "coc.source.emoji.filetypes": ["markdown", "javascript", "javascriptreact"],
+  "prettier.endOfLine": "crlf",
+  "javascript.suggestionActions.enabled": false
+}

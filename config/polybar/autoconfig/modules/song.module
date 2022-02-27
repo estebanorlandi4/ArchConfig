@@ -1,0 +1,5 @@
+[module/song]
+type = custom/script
+exec = ~/.config/polybar/scripts/song.sh
+click-left = "playerctl --player=spotify play-pause"
+interval = 1

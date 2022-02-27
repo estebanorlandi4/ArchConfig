@@ -1,0 +1,26 @@
+function mygcl { 
+  git clone https://github.com/estebanorlandi4/$1.git
+}
+
+function headset {
+  bluetoothctl $1 74:45:CE:83:FC:25 
+}
+
+
+function scfull {
+  import -window root /home/esteban/Images/$1
+}
+
+function scwindow {
+  import -window `xwininfo | grep 'Window id:' | cut -d" " -f4` /home/esteban/Images/$1
+}
+
+function repos {
+  cd ~/code/git_repos/$1
+}
+
+alias sizeOf="df -h"
+alias fc-family="fc-list : family style"
+alias cls="clear"
+
+alias mongod="sudo mongod --dbpath='/home/esteban/.local/mongodb/data/db' --port=27017"

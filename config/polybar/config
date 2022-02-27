@@ -1,0 +1,301 @@
+[colors]
+  black = #282c34
+  white = #fbf2ff
+  light-red = #e06c75
+  dark-red = #be5046
+  green = #98c379
+  light-yellow = #e5c07b
+  dark-yellow = #d19a66
+  blue = #61afef
+  cyan = #56b6c2
+  magenta = #c678dd
+  gutter-grey = #4b5263
+  comment-grey = #5c6370
+
+;=====================
+
+[bar/myBar]
+monitor = ${env:MONITOR:}
+
+width = 100%
+height = 30
+fixed-center = true
+
+background = ${colors.black}
+foreground = ${colors.white}
+
+line-size = 2
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+separator = %{F#5c6370}|%{F-}
+
+font-0 = FiraCode Nerd Font:size=8;0
+
+modules-left = arch i3
+modules-center = song date 
+modules-right = bluetooth wlan backlightctl pulseaudio battery
+
+cursor-click = pointer
+
+;=====================
+;
+; arch
+;
+;=====================
+
+[module/arch]
+type = custom/text
+content = ""
+
+
+content-foreground = ${colors.white}
+
+
+;=====================
+;
+; backlightctl
+;
+;=====================
+
+[module/backlightctl]
+type = custom/script
+exec = ~/.config/polybar/scripts/backlight.sh
+interval = 0.25
+
+
+
+;=====================
+;
+; battery
+;
+;=====================
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 100
+
+format-charging =  <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>  
+format-full =  <label-full> 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
+ramp-capacity-0-foreground = ${colors.dark-red}
+ramp-capacity-1-foreground = ${colors.dark-red}
+ramp-capacity-2-foreground = ${colors.light-red}
+ramp-capacity-3-foreground = ${colors.light-red}
+ramp-capacity-4-foreground = ${colors.dark-yellow}
+ramp-capacity-5-foreground = ${colors.dark-yellow}
+ramp-capacity-6-foreground = ${colors.light-yellow}
+ramp-capacity-7-foreground = ${colors.light-yellow}
+ramp-capacity-8-foreground = ${colors.green}
+ramp-capacity-9-foreground = ${colors.green}
+
+
+;=====================
+;
+; bluetooth
+;
+;=====================
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh
+click-left = ~/.config/polybar/scripts/toggle_bluetooth.sh
+
+interval = 3
+format-padding = 1
+format-foreground = ${colors.gutter-grey}
+
+
+;=====================
+;
+; date
+;
+;=====================
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "%a %b %d"
+time = "%H:%M"
+
+date-alt = "%d/%m/%Y"
+time-alt = "%H:%M"
+
+label = " %time% %date%"
+format= <label>
+
+
+;=====================
+;
+; i3
+;
+;=====================
+
+[module/i3]
+type = internal/i3
+enable-click = true
+enable-scroll = true
+pin-workspaces = false
+
+index-sort = true
+;strip-wsnumbers = yes
+
+ws-icon-0 = "1: terms;"
+ws-icon-1 = "2: browser;"
+ws-icon-2 = "3: spotify;"
+ws-icon-3 = "4: games;"
+ws-icon-4 = "5: servers;"
+
+ws-icon-default = 
+
+format = <label-state>
+
+label-focused = %icon% %index%
+label-focused-padding = 1
+label-focused-foreground = ${colors.cyan}
+label-focused-underline = ${colors.cyan}
+
+label-unfocused = %icon% %index%
+label-unfocused-padding = 1
+
+label-visible = %icon% %index%
+label-visible-padding = 1
+label-visible-foreground = ${colors.light-red}
+label-visible-underline = ${colors.light-red}
+
+
+label-urgent = %icon% %index%
+label-urgent-padding = 1
+
+
+;=====================
+;
+; pulseaudio
+;
+;=====================
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted = 婢 0
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #f5a70a
+bar-volume-foreground-4 = #f5a70a
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-7 = #ff5555
+bar-volume-foreground-8 = #ff5555
+
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+;=====================
+;
+; song
+;
+;=====================
+
+[module/song]
+type = custom/script
+exec = ~/.config/polybar/scripts/song.sh
+click-left = "playerctl --player=spotify play-pause"
+interval = 1
+
+
+;=====================
+;
+; wlan
+;
+;=====================
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% 
+
+format-disconnected = <label-disconnected>
+label-disconnected = 睊
+
+ramp-signal-0 = 
+ramp-signal-foreground = ${colors.white}
+
+
+;=====================
+;
+; xwindow
+;
+;=====================
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 25
+
+
+
+
+;=====================
+;
+; xxxwindow
+;
+;=====================
+
+[module/xxxwindow]
+type = custom/script
+interval = 0
+exec = ~/.config/polybar/scripts/xxxwindow.sh
+
+
+
+;=====================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+;=====================
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
